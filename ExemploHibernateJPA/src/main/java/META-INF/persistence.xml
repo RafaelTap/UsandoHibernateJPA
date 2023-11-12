@@ -33,7 +33,7 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org
      
     <property
      name="javax.persistence.jdbc.url"
-     value="jdbc:mysql://localhost/forum"/>
+     value="jdbc:mysql://localhost/forum01"/>
      
     <property
      name="javax.persistence.jdbc.user"
