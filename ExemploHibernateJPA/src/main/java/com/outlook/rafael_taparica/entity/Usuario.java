@@ -2,9 +2,12 @@ package com.outlook.rafael_taparica.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +15,7 @@ import javax.persistence.Table;
 public class Usuario {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;
 
 	@Column
@@ -21,8 +24,9 @@ public class Usuario {
 	@Column
 	private String email;
 
-	@Column
-	private int forum_idForum;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idforum")
+	private Forum forum;
 
 	public int getIdUsuario() {
 		return idUsuario;
@@ -48,14 +52,12 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public int getForum_idForum() {
-		return forum_idForum;
+	public Forum getForum() {
+		return forum;
 	}
 
-	public void setForum_idForum(int forum_idForum) {
-		this.forum_idForum = forum_idForum;
+	public void setForum(Forum forum) {
+		this.forum = forum;
 	}
-	
-	
 
 }
